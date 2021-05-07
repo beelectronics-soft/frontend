@@ -1,0 +1,45 @@
+.cartitem {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 8px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
+    gap: 8px;
+    background: #333;
+    border-radius: 2px;
+    place-items: center;
+}
+
+.cartitem a {
+    text-decoration: none;
+    color: #f4f4f4;
+}
+
+.cartitem__name {
+    text-decoration: none;
+    color: #171717;
+}
+
+.cartitem__name:hover {
+    color: #d1ce26;
+}
+
+.cartitem__select {
+    padding: 10px 17px;
+}
+
+.cartitem__deletebutton {
+    padding: 10px 17px;
+    color: red;       
+    background: #f4f4f4;
+    border: 1px solid #171717;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.cartitem__deletebutton:hover,
+.cartitem__deletebutton:focus,
+.cartitem__deletebutton:active {
+    background: #171717;
+    transform: scale(1.2);
+}

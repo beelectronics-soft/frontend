@@ -1,0 +1,18 @@
+#container {
+    width: 100%;
+    margin: auto;
+ }
+ 
+ #container img {
+    width: auto;
+ }
+
+ .info__button {
+   text-decoration: none;
+   color: #f4f4f4;
+}
+
+.info__button:hover{
+   text-decoration: none;
+   color: #a3a3a3;
+}
