@@ -24,7 +24,7 @@ function Login() {
 
     useEffect(() => {
         socketS2.on('checkLogin', res => {
-            if (res.status) {
+            if (res.status === true) {
                 setCurrentUser({
                     idUser: res.user.idUser, 
                     idUserType: res.user.idUserType, 
@@ -33,7 +33,7 @@ function Login() {
                     imgUser: res.user.imgUser
                 });
             } else {
-                alert('Something went wrong');
+                alert(res.message);
             }
         });
     })
@@ -59,12 +59,13 @@ function Login() {
                             <legend>Log in</legend>
                             <div class="form-group">
                                 <label>User</label>
-                                <input type="text" class="form-control" id="nameUser" name="nameUser" placeholder="Enter your username" />
-
+                                <input type="text" class="form-control" id="nameUser" name="nameUser" placeholder="Enter your username" 
+                                required/>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" class="form-control" id="passUser" placeholder="Password" />
+                                <input type="password" class="form-control" id="passUser" placeholder="Password" 
+                                required/>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <Link to='/signup'>

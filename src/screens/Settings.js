@@ -17,15 +17,19 @@ const Settings = ({ history }) => {
 
     useEffect(() => {
         socketS2.on('updateUser', res => {
-            setCurrentUser(upUser);
-            if (upUser.idUserType === 1) {
-                history.push('/admin');    
-            } 
-            if (upUser.idUserType === 2) {
-                history.push('/storer');    
-            }
-            if (upUser.idUserType === 3) {
-                history.push('/');    
+            if (res.status === true) {
+                setCurrentUser(upUser);
+                if (upUser.idUserType === 1) {
+                    history.push('/admin');    
+                } 
+                if (upUser.idUserType === 2) {
+                    history.push('/storer');    
+                }
+                if (upUser.idUserType === 3) {
+                    history.push('/');    
+                }
+            } else {
+                alert(res.message);
             }
         });
 
@@ -130,14 +134,14 @@ const Settings = ({ history }) => {
                         <div class="form-group">
                             <label>Name</label>
                             <input type="text" class="form-control" id="nameUser" name="nameUser" aria-describedby="nameUserHelp" placeholder="Username"
-                            defaultValue={currentUser.nameUser}/>
+                            defaultValue={currentUser.nameUser} required/>
                             <small id="nameUserHelp" class="form-text text-muted">Put an easy to remember name</small>
                         </div>
 
                         <div class="form-group">
                             <label>Password</label>
                             <input type="password" class="form-control" id="passUser" name="passUser" aria-describedby="passUserHelp" placeholder="Password"
-                            defaultValue={currentUser.passUser}/>
+                            defaultValue={currentUser.passUser} required/>
                             <small id="passUserHelp" class="form-text text-muted">Set an easy to remember password</small>
                         </div>
 

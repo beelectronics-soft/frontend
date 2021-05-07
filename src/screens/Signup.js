@@ -69,7 +69,8 @@ function Signup()
                             </div>
                             <div class="form-group">
                                 <label>User</label>
-                                <input type="text" class="form-control" id="nameUser" name="nameUser" placeholder="Enter your username" />
+                                <input type="text" class="form-control" id="nameUser" name="nameUser" placeholder="Enter your username" 
+                                required/>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>

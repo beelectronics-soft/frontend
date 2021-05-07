@@ -93,7 +93,7 @@ const EditProduct = ({ history }) => {
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" class="form-control" id="nameProduct" name="nameProduct" aria-describedby="nameProductHelp" placeholder="Enter product name"
-                        defaultValue={product.nameProduct}/>
+                        defaultValue={product.nameProduct} required/>
                         <small id="nameProductHelp" class="form-text text-muted">Try to be descriptive enough.</small>
                     </div>
                     <div class="form-group">
@@ -105,13 +105,13 @@ const EditProduct = ({ history }) => {
                     <div class="form-group">
                         <label>Price</label>
                         <input min="0" type="number" class="form-control" id="priceProduct" name="priceProduct" aria-describedby="priceProductHelp" placeholder="Enter product price"
-                        defaultValue={product.priceProduct}/>
+                        defaultValue={product.priceProduct} required/>
                         <small id="priceProductHelp" class="form-text text-muted">0 is a valid price.</small>
                     </div>
                     <div class="form-group">
                         <label>Stock</label>
                         <input min="0" type="number" class="form-control" id="stockProduct" name="stockProduct" aria-describedby="stockProductHelp" placeholder="Enter product price"
-                        defaultValue={product.stockProduct}/>
+                        defaultValue={product.stockProduct} required/>
                         <small id="stockProductHelp" class="form-text text-muted">0 is a valid stock.</small>
                     </div>
                     <label>Old image</label>

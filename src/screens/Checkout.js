@@ -36,7 +36,6 @@ const Checkout = ({ history }) => {
         });
 
         socketS3.on("checkPayStatus", res => {
-            console.log(res);   
             setButtonStatus(res);
         });
     });
@@ -50,8 +49,9 @@ const Checkout = ({ history }) => {
     useEffect(() => {
         socketS3.on('buyProducts', res => {
             if (res === true) {
-                history.push("/");
                 setCart([]);
+                history.push("/");
+                alert("Successful purchase");
             }   
         })
     });
@@ -59,7 +59,11 @@ const Checkout = ({ history }) => {
     const renderButton = () => {
         if (buttonStatus.code === "ok") {
             return (
-                <input type="submit" value="Finish" class="btn" />
+                <div>
+                    <input type="submit" value="Finish" class="btn" />
+                    <br></br>
+                    <p>Card: {account.id}</p>
+                </div>
             )
         } 
 
@@ -67,6 +71,15 @@ const Checkout = ({ history }) => {
             <div>
                 <input type="submit" value="Finish" class="btn" disabled/>
                 <br></br>
+                <p>Card: { 
+                    (() => {
+                        if (account) {
+                            return account.id;
+                        } else {
+                            return "XXXX";
+                        }
+                    })()
+                }</p>
                 <p>{ buttonStatus.message }</p>
             </div>
         )
@@ -102,7 +115,8 @@ const Checkout = ({ history }) => {
                                         <i class="fab fa-cc-discover" style={{ color: 'orange', marginRight:"15px", fontSize: "50px" }}></i>
                                     </div>
                                     <label for="ccnum">Credit card number</label>
-                                    <input type="text" id="idAccount" name="idAccount" placeholder="1111222233334444" />
+                                    <input type="text" id="idAccount" name="idAccount" placeholder="1111222233334444" 
+                                    maxLength="16"/>
                                     <button className="btn" style={{ background: "#222" }} type="button"
                                     onClick={ saveAccount } >Press to check card</button>
                                 </div>

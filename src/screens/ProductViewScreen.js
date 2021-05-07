@@ -10,7 +10,7 @@ const socketS1 = io.connect("http://26.142.66.43:4000");
 
 var qty;
 
-function ProductViewScreen() {
+function ProductViewScreen({ history }) {
     const { id } = useParams();
     const { cart } = getContext();
     const [ status, setStatus ] = useState(true);
@@ -25,8 +25,12 @@ function ProductViewScreen() {
 
     useEffect(() => {
         socketS1.on("getProduct", res => {
-            qty = "1";
-            setProduct(JSON.parse(res));
+            if (res) {
+                qty = "1";
+                setProduct(JSON.parse(res));
+            } else {
+                history.push("/");
+            }
         });
 
         socketS1.on("isInStock", res => {
@@ -96,31 +100,33 @@ function ProductViewScreen() {
                             { renderStock() }
                         </p>
                         <p>
-                            <Link to="/">
-                                <button id="button" type="button" onClick={() => {
-                                    const element = {
-                                        id: id,
-                                        qty: parseInt(qty), 
-                                        price: product.priceProduct
-                                    }
+                        <Link to="/">
+                            <button id="button" type="button" onClick={() => {
+                                const element = {
+                                    id: id,
+                                    qty: parseInt(qty), 
+                                    price: product.priceProduct
+                                }
 
-                                    var flag = true;
-                                    
-                                    // eslint-disable-next-line array-callback-return
-                                    cart.map(item => {
-                                        if (item.id === id) {
-                                            item.qty += element.qty;
-                                            flag = false;
-                                        }
-                                    });
-
-                                    if (flag) {
-                                        cart.push(element);
+                                var flag = true;
+                                
+                                // eslint-disable-next-line array-callback-return
+                                cart.map(item => {
+                                    if (item.id === id) {
+                                        item.qty += element.qty;
+                                        flag = false;
                                     }
-                                }}>
-                                    Add to Cart
-                                </button>
-                            </Link>
+                                });
+
+                                if (flag) {
+                                    cart.push(element);
+                                }
+
+                                alert("Product added");
+                            }}>
+                                Add to Cart
+                            </button>
+                        </Link>
                         </p>
                     </div>
                 </div>

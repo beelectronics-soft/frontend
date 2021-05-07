@@ -37,6 +37,7 @@ function CartItem({ product }) {
                             cart.splice(i, 1);
                         }
                     }
+                    alert("Product removed");
                 }}>
                     <i className="fas fa-trash"></i>
                 </button>

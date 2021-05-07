@@ -10,7 +10,7 @@ import io from "socket.io-client";
 const socketS1 = io.connect("http://26.142.66.43:4000");
 
 function ToolbarClient() {
-    const { cart }  = getContext();
+    const { cart, setCart }  = getContext();
     const [ count, setCount ] = useState(0);
     const [ status, setStatus ] = useState(true);
     const { currentUser, setCurrentUser } = getAuthContext();
@@ -29,8 +29,8 @@ function ToolbarClient() {
     });
 
     // ban session
-    const closeSession = () => {
-        setCurrentUser(null);
+    const closeSession = () => {    
+        window.location.reload(false);
     }
 
     const renderToggleSession = () => {
@@ -43,8 +43,7 @@ function ToolbarClient() {
             )
         }
         return (
-            <Link to="/login" style={{ marginRight: '10px', color: '#50C878', marginLeft: "15px" }}
-                onClick={ closeSession } >
+            <Link to="/login" style={{ marginRight: '10px', color: '#50C878', marginLeft: "15px" }}>
                     Log in
             </Link>
         )

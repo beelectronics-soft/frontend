@@ -42,14 +42,14 @@ const AddUser = ({ history }) => {
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" class="form-control" id="nameUser" name="nameUser" aria-describedby="nameUserHelp" placeholder="Username"
-                        />
+                        required />
                         <small id="nameUserHelp" class="form-text text-muted">Put an easy to remember name</small>
                     </div>
         
                     <div class="form-group">
                         <label>Password</label>
                         <input type="password" class="form-control" id="passUser" name="passUser" aria-describedby="passUserHelp" placeholder="Password"
-                        />
+                        required/>
                         <small id="passUserHelp" class="form-text text-muted">Set an easy to remember password</small>
                     </div>
 
