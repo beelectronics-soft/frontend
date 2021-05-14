@@ -13,18 +13,19 @@ const AddProduct = ({ history }) => {
     const { currentUser } = getAuthContext();
 
     if (status) {
-        socketS2.emit('getUser', currentUser.idUser);
+        // socketS2.emit('getUser', currentUser.idUser);
+        socketS1.emit('getCategories');
         setStatus(false);
     }
 
     useEffect(() => {
-        socketS2.on('getUser', res => {
-            if (res !== false) {
-                socketS1.emit('getCategories');
-            }
+        // socketS2.on('getUser', res => {
+            // if (res !== false) {
+                
+            // }
 
-            window.location.reload(false);
-        })
+        //     window.location.reload(false);
+        // })
         
         socketS1.on("getCategories", res => {
             setCategories(JSON.parse(res));

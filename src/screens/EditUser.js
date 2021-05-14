@@ -49,7 +49,8 @@ const EditUser = ({ history }) => {
                 nameUser: nameUser.value, 
                 passUser: passUser.value, 
                 idUserType: 2, 
-                imgUser: imgUser
+                imgUser: imgUser, 
+                statusUser: 0
             }
 
             socketS2.emit("updateUser", upUser); 
@@ -63,7 +64,8 @@ const EditUser = ({ history }) => {
                 nameUser: nameUser.value, 
                 passUser: passUser.value, 
                 idUserType: 2, 
-                imgUser: user.imgUser
+                imgUser: user.imgUser, 
+                statusUser: 0
             }
 
             socketS2.emit("updateUser", upUser); 

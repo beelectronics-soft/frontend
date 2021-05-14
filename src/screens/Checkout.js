@@ -51,7 +51,6 @@ const Checkout = ({ history }) => {
             if (res === true) {
                 setCart([]);
                 history.push("/");
-                alert("Successful purchase");
             }   
         })
     });
@@ -90,7 +89,6 @@ const Checkout = ({ history }) => {
         if (idAccount === "") {
             idAccount = null;
         }
-        console.log(idAccount);
         setAccount({ id: idAccount })
         socketS3.emit("checkPayStatus", { id: idAccount }, cart );
     }

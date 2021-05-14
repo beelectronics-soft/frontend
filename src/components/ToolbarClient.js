@@ -8,6 +8,7 @@ import { getAuthContext } from '../utils/AuthContext';
 
 import io from "socket.io-client";
 const socketS1 = io.connect("http://26.142.66.43:4000");
+const socketS2 = io.connect("http://26.142.66.43:4001");
 
 function ToolbarClient() {
     const { cart, setCart }  = getContext();
@@ -30,6 +31,9 @@ function ToolbarClient() {
 
     // ban session
     const closeSession = () => {    
+        var upUser = currentUser;
+        upUser.statusUser = 0;
+        socketS2.emit("updateUser", upUser);
         window.location.reload(false);
     }
 

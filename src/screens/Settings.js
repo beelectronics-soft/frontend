@@ -54,7 +54,8 @@ const Settings = ({ history }) => {
                 nameUser: nameUser.value, 
                 passUser: passUser.value, 
                 idUserType: currentUser.idUserType, 
-                imgUser: imgUser
+                imgUser: imgUser, 
+                statusUser: 1
             })
 
             socketS2.emit("updateUser", {
@@ -62,7 +63,8 @@ const Settings = ({ history }) => {
                 nameUser: nameUser.value, 
                 passUser: passUser.value, 
                 idUserType: currentUser.idUserType, 
-                imgUser: imgUser
+                imgUser: imgUser, 
+                statusUser: 1
             }); 
         });
 
@@ -74,7 +76,8 @@ const Settings = ({ history }) => {
                 nameUser: nameUser.value, 
                 passUser: passUser.value, 
                 idUserType: currentUser.idUserType, 
-                imgUser: currentUser.imgUser
+                imgUser: currentUser.imgUser,
+                statusUser: 1
             })
 
             socketS2.emit("updateUser", {
@@ -82,7 +85,8 @@ const Settings = ({ history }) => {
                 nameUser: nameUser.value, 
                 passUser: passUser.value, 
                 idUserType: currentUser.idUserType, 
-                imgUser: currentUser.imgUser
+                imgUser: currentUser.imgUser,
+                statusUser: 1
             }); 
         }
     }); 
