@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 import { getAuthContext } from '../utils/AuthContext';
 
 import io from "socket.io-client";
-const socketS1 = io.connect("http://26.142.66.43:4000");
-const socketS2 = io.connect("http://26.142.66.43:4001");
+import {socket1url, socket2url} from "../utils/Env";
+const socketS1 = io.connect(socket1url);
+const socketS2 = io.connect(socket2url);
 
 function ToolbarClient() {
     const { cart, setCart }  = getContext();

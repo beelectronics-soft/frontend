@@ -6,8 +6,10 @@ import { getContext } from "../utils/CartContext";
 
 import io from "socket.io-client";
 import { getAuthContext } from '../utils/AuthContext';
-const socketS3 = io.connect("http://26.142.66.43:4002");
-const socketS1 = io.connect("http://26.142.66.43:4000");
+import {socket1url, socket3url} from "../utils/Env";
+const socketS1 = io.connect(socket1url);
+const socketS3 = io.connect(socket3url);
+
 
 const Checkout = ({ history }) => {
     const { cart, setCart } = getContext();

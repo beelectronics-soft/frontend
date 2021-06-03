@@ -7,7 +7,9 @@ import ToolbarClient from "../components/ToolbarClient";
 import { getAuthContext } from "../utils/AuthContext";
 import Record from "../components/Record";
 
-const socketS3 = io.connect("http://26.142.66.43:4002");
+import {socket3url} from "../utils/Env";
+const socketS3 = io.connect(socket3url);
+
 
 function Records() {
     const [ records, setRecords ] = useState([]);

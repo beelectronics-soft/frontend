@@ -8,7 +8,9 @@ import ToolbarStorer from '../components/ToolbarStorer';
 import { getAuthContext } from '../utils/AuthContext';
 
 import io from "socket.io-client";
-const socketS2 = io.connect("http://26.142.66.43:4001");
+import {socket2url} from "../utils/Env";
+const socketS2 = io.connect(socket2url);
+
 
 const Settings = ({ history }) => {
     const [ upUser, setUpUser ] = useState({});

@@ -6,7 +6,9 @@ import ToolbarClient from "../components/ToolbarClient";
 import ProductCard from "../components/ProductCard";
 import { getContext } from "../utils/CartContext";
 
-const socketS1 = io.connect("http://26.142.66.43:4000");
+import {socket1url} from "../utils/Env";
+const socketS1 = io.connect(socket1url);
+
 
 function HomeClient({ history }) {
     const [products, setProducts] = useState([]);

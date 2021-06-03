@@ -4,7 +4,9 @@ import './EditProduct.css';
 
 import io from "socket.io-client";
 import { useParams } from 'react-router';
-const socketS1 = io.connect("http://26.142.66.43:4000");
+import {socket1url} from "../utils/Env";
+const socketS1 = io.connect(socket1url);
+
 
 const EditProduct = ({ history }) => {
     const { id } = useParams();

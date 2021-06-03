@@ -4,7 +4,9 @@ import ToolbarAdmin from '../components/ToolbarAdmin';
 import './EditUser.css';
 
 import io from "socket.io-client";
-const socketS2 = io.connect("http://26.142.66.43:4001");
+import {socket2url} from "../utils/Env";
+const socketS2 = io.connect(socket2url);
+
 
 const EditUser = ({ history }) => {
     const { id } = useParams();

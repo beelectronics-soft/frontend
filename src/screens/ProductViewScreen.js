@@ -6,7 +6,9 @@ import ToolbarClient from "../components/ToolbarClient";
 import { getContext } from "../utils/CartContext";
 import "./ProductViewScreen.css";
 
-const socketS1 = io.connect("http://26.142.66.43:4000");
+import {socket1url} from "../utils/Env";
+const socketS1 = io.connect(socket1url);
+
 
 var qty;
 

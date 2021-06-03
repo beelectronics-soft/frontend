@@ -4,8 +4,10 @@ import './AddProduct.css';
 
 import io from "socket.io-client";
 import { getAuthContext } from '../utils/AuthContext';
-const socketS1 = io.connect("http://26.142.66.43:4000");
-const socketS2 = io.connect("http://26.142.66.43:4001");
+
+import {socket1url, socket2url} from "../utils/Env";
+const socketS1 = io.connect(socket1url);
+const socketS2 = io.connect(socket2url);
 
 const AddProduct = ({ history }) => {
     const [ status, setStatus ] = useState(true);

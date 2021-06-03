@@ -3,7 +3,8 @@ import ProductStorerCard from "../components/ProductStorerCard";
 import ToolbarStorer from "../components/ToolbarStorer";
 
 import io from "socket.io-client";
-const socketS1 = io.connect("http://26.142.66.43:4000");
+import {socket1url} from "../utils/Env";
+const socketS1 = io.connect(socket1url);
 
 function HomeStorer() {
     const [ products, setProducts ] = useState([]);
